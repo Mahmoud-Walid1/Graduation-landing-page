@@ -391,224 +391,428 @@ body {
     }
 }
 
-/* ==================== Penguin Animation ==================== */
-.penguin-container {
+/* ==================== Robot Animation ==================== */
+.robot-scene {
     position: relative;
-    width: 120px;
-    height: 100px;
+    width: 200px;
+    height: 160px;
     z-index: 1;
     animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
-.penguin {
+.robot {
+    position: absolute;
+    left: 20px;
+    bottom: 30px;
+    z-index: 2;
+}
+
+.robot-head {
     position: relative;
-    width: 60px;
-    height: 70px;
-    margin: 0 auto;
-}
-
-.penguin-body {
-    position: absolute;
     width: 50px;
-    height: 55px;
-    background: var(--primary-blue);
-    border-radius: 25px 25px 20px 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 5px;
-}
-
-.penguin-belly {
-    position: absolute;
-    width: 35px;
     height: 40px;
-    background: #fff;
-    border-radius: 50% 50% 45% 45%;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    border-radius: 12px 12px 8px 8px;
+    margin: 0 auto;
+    animation: robotBob 2s ease-in-out infinite;
+}
+
+@keyframes robotBob {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-3px) rotate(2deg);
+    }
+}
+
+.antenna {
+    position: absolute;
+    width: 3px;
+    height: 15px;
+    background: var(--primary-gold);
     left: 50%;
     transform: translateX(-50%);
-    bottom: 5px;
+    top: -15px;
 }
 
-.penguin-face {
-    position: absolute;
-    width: 100%;
-    height: 25px;
-    top: 8px;
-}
-
-.penguin-eye {
+.antenna-ball {
     position: absolute;
     width: 10px;
     height: 10px;
-    background: #fff;
+    background: var(--primary-gold);
     border-radius: 50%;
-    top: 5px;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: antennaPulse 1s ease-in-out infinite;
+    box-shadow: 0 0 10px var(--primary-gold);
 }
 
-.penguin-eye::after {
-    content: '';
+@keyframes antennaPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px var(--primary-gold);
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 15px var(--primary-gold), 0 0 25px var(--primary-gold);
+        transform: translateX(-50%) scale(1.2);
+    }
+}
+
+.robot-face {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    padding-top: 10px;
+}
+
+.robot-eye {
+    width: 12px;
+    height: 12px;
+    background: #0a1628;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.eye-light {
     position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #000;
+    width: 8px;
+    height: 8px;
+    background: var(--primary-gold);
     border-radius: 50%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: blink 3s infinite;
+    animation: eyeGlow 2s ease-in-out infinite;
 }
 
-.penguin-eye.left {
-    left: 10px;
-}
-
-.penguin-eye.right {
-    right: 10px;
-}
-
-@keyframes blink {
-
-    0%,
-    90%,
-    100% {
-        transform: translate(-50%, -50%) scaleY(1);
-    }
-
-    95% {
-        transform: translate(-50%, -50%) scaleY(0.1);
-    }
-}
-
-.penguin-beak {
-    position: absolute;
-    width: 12px;
-    height: 8px;
-    background: var(--primary-gold);
-    border-radius: 0 0 50% 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 15px;
-}
-
-.penguin-feet {
-    position: absolute;
-    bottom: -5px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.foot {
-    width: 15px;
-    height: 8px;
-    background: var(--primary-gold);
-    border-radius: 50%;
-}
-
-.penguin-arm {
-    position: absolute;
-    width: 12px;
-    height: 30px;
-    background: var(--primary-blue);
-    border-radius: 6px;
-    right: -5px;
-    top: 20px;
-    transform-origin: top center;
-    animation: hammerSwing 0.6s ease-in-out infinite;
-}
-
-.hammer {
-    position: absolute;
-    right: -25px;
-    top: 10px;
-    transform-origin: bottom left;
-    animation: hammerSwing 0.6s ease-in-out infinite;
-}
-
-.hammer-handle {
-    width: 6px;
-    height: 25px;
-    background: #8B4513;
-    border-radius: 2px;
-    margin-left: 5px;
-}
-
-.hammer-head {
-    position: absolute;
-    width: 18px;
-    height: 10px;
-    background: #666;
-    border-radius: 2px;
-    top: -3px;
-    left: -3px;
-}
-
-@keyframes hammerSwing {
+@keyframes eyeGlow {
 
     0%,
     100% {
-        transform: rotate(-30deg);
+        opacity: 1;
     }
 
     50% {
-        transform: rotate(10deg);
+        opacity: 0.5;
     }
 }
 
-.sparks {
-    position: absolute;
-    right: 5px;
-    top: 45px;
-}
-
-.sparks span {
-    position: absolute;
-    width: 4px;
+.robot-mouth {
+    width: 20px;
     height: 4px;
     background: var(--primary-gold);
-    border-radius: 50%;
-    opacity: 0;
-    animation: spark 0.6s ease-out infinite;
+    border-radius: 2px;
+    margin: 8px auto 0;
+    animation: mouthTalk 0.5s ease-in-out infinite;
 }
 
-.sparks span:nth-child(1) {
-    animation-delay: 0.5s;
+@keyframes mouthTalk {
+
+    0%,
+    100% {
+        width: 20px;
+    }
+
+    50% {
+        width: 15px;
+    }
 }
 
-.sparks span:nth-child(2) {
-    animation-delay: 0.55s;
-    left: 8px;
-    top: -5px;
+.robot-body {
+    width: 60px;
+    height: 50px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    border-radius: 8px;
+    margin: 5px auto 0;
+    position: relative;
 }
 
-.sparks span:nth-child(3) {
-    animation-delay: 0.6s;
-    left: -5px;
+.robot-screen {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 25px;
+    background: #0a1628;
+    border-radius: 4px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+.screen-line {
+    width: 100%;
+    height: 3px;
+    background: var(--primary-gold);
+    margin-bottom: 4px;
+    border-radius: 2px;
+    animation: screenType 1.5s ease-in-out infinite;
+}
+
+.screen-line:nth-child(2) {
+    animation-delay: 0.2s;
+    width: 70%;
+}
+
+.screen-line:nth-child(3) {
+    animation-delay: 0.4s;
+    width: 85%;
+}
+
+@keyframes screenType {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.robot-arm {
+    position: absolute;
+    width: 10px;
+    height: 35px;
+    background: var(--primary-blue);
+    border-radius: 5px;
     top: 5px;
 }
 
-@keyframes spark {
-    0% {
-        opacity: 1;
-        transform: scale(1) translate(0, 0);
+.left-arm {
+    left: -12px;
+    transform-origin: top center;
+    animation: leftArmType 0.4s ease-in-out infinite;
+}
+
+.right-arm {
+    right: -12px;
+    transform-origin: top center;
+    animation: rightArmType 0.4s ease-in-out infinite 0.2s;
+}
+
+@keyframes leftArmType {
+
+    0%,
+    100% {
+        transform: rotate(-10deg);
     }
 
-    100% {
-        opacity: 0;
-        transform: scale(0) translate(10px, -10px);
+    50% {
+        transform: rotate(5deg);
     }
 }
 
-.work-surface {
+@keyframes rightArmType {
+
+    0%,
+    100% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+}
+
+.robot-hand {
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
+    width: 14px;
+    height: 10px;
+    background: var(--primary-gold);
+    border-radius: 3px;
+}
+
+/* Laptop */
+.laptop {
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+}
+
+.laptop-screen {
+    width: 70px;
+    height: 50px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    border: 3px solid #333;
+    border-radius: 5px 5px 0 0;
+    padding: 8px;
+    position: relative;
+    transform: perspective(100px) rotateX(-5deg);
+}
+
+.code-line {
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-gold) 60%, transparent 60%);
+    margin-bottom: 6px;
+    border-radius: 2px;
+    animation: codeType 2s ease-in-out infinite;
+}
+
+.code-line:nth-child(1) {
+    width: 90%;
+    animation-delay: 0s;
+}
+
+.code-line:nth-child(2) {
+    width: 70%;
+    animation-delay: 0.3s;
+    background: linear-gradient(90deg, var(--accent-blue) 80%, transparent 80%);
+}
+
+.code-line:nth-child(3) {
+    width: 85%;
+    animation-delay: 0.6s;
+}
+
+@keyframes codeType {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 90%;
+    }
+
+    100% {
+        width: 90%;
+    }
+}
+
+.cursor-blink {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    width: 2px;
     height: 8px;
-    background: linear-gradient(to bottom, #8B4513, #654321);
-    border-radius: 4px;
+    background: #fff;
+    animation: cursorBlink 0.8s step-end infinite;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.laptop-base {
+    width: 80px;
+    height: 5px;
+    background: linear-gradient(to bottom, #444, #222);
+    border-radius: 0 0 3px 3px;
+    margin-left: -5px;
+}
+
+/* Floating Elements */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.gear {
+    position: absolute;
+    font-size: 20px;
+    color: var(--primary-gold);
+    opacity: 0.6;
+}
+
+.gear-1 {
+    top: 0;
+    right: 30px;
+    animation: spin 4s linear infinite, floatGear 3s ease-in-out infinite;
+}
+
+.gear-2 {
+    top: 20px;
+    right: 10px;
+    font-size: 14px;
+    animation: spin 3s linear infinite reverse, floatGear 2.5s ease-in-out infinite 0.5s;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floatGear {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-5px) rotate(180deg);
+    }
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    animation: particleFloat 3s ease-in-out infinite;
+}
+
+.p1 {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.p2 {
+    top: 30%;
+    right: 5%;
+    animation-delay: 1s;
+}
+
+.p3 {
+    bottom: 40%;
+    left: 5%;
+    animation-delay: 2s;
+}
+
+@keyframes particleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: translateY(-15px) scale(1.2);
+        opacity: 1;
+    }
 }
 
 /* ==================== Features Preview ==================== */
@@ -742,7 +946,7 @@ body {
         padding: 0 0.5rem;
     }
 
-    .penguin-container {
+    .robot-scene {
         transform: scale(0.85);
     }
 
