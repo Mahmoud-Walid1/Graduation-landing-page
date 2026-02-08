@@ -103,8 +103,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row-reverse;
-    /* Right to left in RTL */
+    flex-direction: row;
 }
 
 .nav-logo {
@@ -115,10 +114,12 @@ body {
     color: var(--text-primary);
     font-weight: 800;
     font-size: 1.2rem;
+    order: 2;
+    margin-right: auto;
 }
 
 .nav-logo img {
-    height: 30px;
+    height: 50px;
     width: auto;
 }
 
@@ -127,6 +128,7 @@ body {
     gap: 1.5rem;
     list-style: none;
     align-items: center;
+    order: 0;
 }
 
 .nav-links a {
@@ -165,7 +167,7 @@ body {
     position: relative;
     /* Ensure it respects flow */
     z-index: 1003;
-    gap: 4px;
+    order: 0;
 }
 
 .mobile-menu-btn span {
@@ -287,10 +289,11 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
-    padding-top: calc(80px + 3rem);
-    /* Navbar height + extra spacing */
-    padding-bottom: 3rem;
-    gap: 1.5rem;
+    padding-top: calc(80px + 1rem);
+    /* Reduced top padding */
+    padding-bottom: 2rem;
+    gap: 0.5rem;
+    /* Reduced gap between elements dramatically */
     position: relative;
     z-index: 1;
 }
@@ -298,23 +301,30 @@ body {
 /* ==================== Logo ==================== */
 .logo-container {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: clamp(250px, 30vw, 450px);
+    height: clamp(200px, 25vw, 350px);
+    /* Reduced height significantly */
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
     animation: fadeInDown 0.8s ease-out;
+    margin-bottom: -50px;
+    /* Pull title up closer */
 }
 
 .logo {
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     filter: drop-shadow(0 10px 30px var(--shadow-color));
     animation: logoFloat 4s ease-in-out infinite;
     position: relative;
     z-index: 2;
+    transform: scale(2.0);
+    /* Slightly reduced scale to fit better */
+    margin: 0;
+    /* Remove margin completely */
 }
 
 .logo-glow {
@@ -1014,11 +1024,6 @@ body {
         height: 44px;
     }
 
-    .logo {
-        width: 100px;
-        height: 100px;
-    }
-
     .logo-glow {
         width: 130px;
         height: 130px;
@@ -1055,11 +1060,6 @@ body {
     .container {
         padding: 0.8rem;
         gap: 0.6rem;
-    }
-
-    .logo {
-        width: 80px;
-        height: 80px;
     }
 
     .logo-glow {
@@ -1598,7 +1598,8 @@ body.loaded #preloader {
     justify-content: center;
     align-items: flex-end;
     gap: 1rem;
-    margin: 3rem auto;
+    margin: 1rem auto;
+    /* Reduced margin */
     flex-wrap: wrap;
     padding-bottom: 2rem;
     max-width: 1000px;
