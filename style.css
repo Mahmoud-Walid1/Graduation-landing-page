@@ -58,14 +58,9 @@ body {
     min-height: 100dvh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    padding: 1.5rem;
-    padding-top: 140px;
-    /* Enough space for fixed navbar */
-    padding-bottom: 2rem;
+    align-items: stretch;
+    padding: 0;
     position: relative;
-    gap: 1.5rem;
 }
 
 .nav-controls {
@@ -281,11 +276,27 @@ body {
     display: block;
 }
 
+/* ==================== Hero Section ==================== */
+.hero-section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    padding-top: calc(80px + 3rem);
+    /* Navbar height + extra spacing */
+    padding-bottom: 3rem;
+    gap: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
 /* ==================== Logo ==================== */
 .logo-container {
     position: relative;
     z-index: 1;
-    margin-top: 2rem;
     animation: fadeInDown 0.8s ease-out;
 }
 
@@ -1131,6 +1142,14 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
+}
+
+/* ==================== General Section Styles ==================== */
+main>section:not(.hero-section) {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 /* --- Vision & Mission --- */
