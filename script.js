@@ -1,71 +1,122 @@
-// Theme Toggle Functionality
-const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
-
-// Check for saved theme preference or default to system preference
-function getPreferredTheme() {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        return savedTheme;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
-// Apply theme
-function setTheme(theme) {
-    html.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-}
-
-// Initialize theme
-setTheme(getPreferredTheme());
-
-// Toggle theme on button click
-themeToggle.addEventListener('click', () => {
-    const currentTheme = html.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    setTheme(newTheme);
-    
-    // Add a little bounce animation to the button
-    themeToggle.style.transform = 'scale(0.9)';
-    setTimeout(() => {
-        themeToggle.style.transform = 'scale(1)';
-    }, 100);
-});
-
-// Listen for system theme changes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-        setTheme(e.matches ? 'dark' : 'light');
+// Preloader Logic
+window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        // Add a small delay to ensure smooth transition
+        setTimeout(() => {
+            document.body.classList.add('loaded');
+            // Remove from DOM after transition matches CSS duration
+            setTimeout(() => {
+                preloader.remove();
+            }, 500);
+        }, 500);
     }
 });
 
-// Add touch feedback for mobile
-document.querySelectorAll('.feature-item, .theme-toggle').forEach(element => {
-    element.addEventListener('touchstart', function() {
-        this.style.transform = 'scale(0.95)';
-    }, { passive: true });
-    
-    element.addEventListener('touchend', function() {
-        this.style.transform = '';
-    }, { passive: true });
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('suggestionForm');
+    const statusMsg = document.getElementById('formStatus');
+
+    if (form) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.textContent;
+
+            // Disable button and show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'جاري الإرسال...';
+            statusMsg.style.display = 'none';
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = {
+                name: formData.get('name'),
+                suggestion: formData.get('suggestion')
+            };
+
+            // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiaJw6DgBmebBtFEk7yszvU-6rg4qgvj4UmBfE01Hwt0r6sCAtuNk2e3xAedDFI_VRgQ/exec';
+
+            if (SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwiaJw6DgBmebBtFEk7yszvU-6rg4qgvj4UmBfE01Hwt0r6sCAtuNk2e3xAedDFI_VRgQ/exec') {
+                alert('Please configure the Google Apps Script URL in script.js first!');
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+                return;
+            }
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Important for Google Apps Script
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+                .then(response => {
+                    // With no-cors, we can't check response.ok, so we assume success if no error
+                    statusMsg.textContent = 'تم إرسال اقتراحك بنجاح! شكراً لك.';
+                    statusMsg.style.color = '#25D366'; // Success green
+                    statusMsg.style.display = 'block';
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    statusMsg.textContent = 'حدث خطأ أثناء الإرسال. حاول مرة أخرى.';
+                    statusMsg.style.color = '#ff4444'; // Error red
+                    statusMsg.style.display = 'block';
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = originalBtnText;
+
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        statusMsg.style.display = 'none';
+                    }, 5000);
+                });
+        });
+    }
 });
 
-// Intersection Observer for scroll animations (for future use)
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
+// Theme Toggle Logic
+const themeToggleBtns = document.querySelectorAll('.theme-toggle');
+const htmlElement = document.documentElement;
+const sunIcons = document.querySelectorAll('.sun-icon');
+const moonIcons = document.querySelectorAll('.moon-icon');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+// Check for saved user preference, if any, on load of the website
+const currentTheme = localStorage.getItem('theme') ? localStorage.getItem('theme') : null;
+
+function updateIcons(theme) {
+    if (theme === 'dark') {
+        sunIcons.forEach(icon => icon.style.display = 'none');
+        moonIcons.forEach(icon => icon.style.display = 'block');
+    } else {
+        sunIcons.forEach(icon => icon.style.display = 'block');
+        moonIcons.forEach(icon => icon.style.display = 'none');
+    }
+}
+
+if (currentTheme) {
+    htmlElement.setAttribute('data-theme', currentTheme);
+    updateIcons(currentTheme);
+} else {
+    // Default to light mode icons
+    updateIcons('light');
+}
+
+themeToggleBtns.forEach(btn => {
+    btn.addEventListener('click', function () {
+        if (htmlElement.getAttribute('data-theme') === 'dark') {
+            htmlElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+            updateIcons('light');
+        } else {
+            htmlElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+            updateIcons('dark');
         }
     });
-}, observerOptions);
-
-// Observe elements with animation classes (for future sections)
-document.querySelectorAll('.animate-on-scroll').forEach(el => {
-    observer.observe(el);
 });
