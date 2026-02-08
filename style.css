@@ -59,15 +59,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     padding: 1.5rem;
-    padding-top: 220px;
-    /* Extra padding to ensure logo is visible below header */
+    padding-top: 140px;
+    /* Enough space for fixed navbar */
     padding-bottom: 2rem;
     position: relative;
-    gap: 1rem;
-    justify-content: flex-start;
-    /* Prevent centering vertically clipping top content */
+    gap: 1.5rem;
 }
 
 .nav-controls {
@@ -275,7 +273,6 @@ body {
     }
 }
 
-/* Old Theme Toggle section removed - now using floating-theme-toggle class */
 [data-theme="dark"] .sun-icon {
     display: none;
 }
@@ -288,6 +285,7 @@ body {
 .logo-container {
     position: relative;
     z-index: 1;
+    margin-top: 2rem;
     animation: fadeInDown 0.8s ease-out;
 }
 
