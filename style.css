@@ -103,6 +103,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row-reverse;
+    /* Right to left in RTL */
 }
 
 .nav-logo {
@@ -296,6 +298,11 @@ body {
 /* ==================== Logo ==================== */
 .logo-container {
     position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 1;
     animation: fadeInDown 0.8s ease-out;
 }
@@ -306,6 +313,8 @@ body {
     object-fit: contain;
     filter: drop-shadow(0 10px 30px var(--shadow-color));
     animation: logoFloat 4s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
 }
 
 .logo-glow {
@@ -313,12 +322,13 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
     border-radius: 50%;
-    z-index: -1;
+    z-index: 0;
     animation: pulse 3s ease-in-out infinite;
+    pointer-events: none;
 }
 
 @keyframes logoFloat {
@@ -976,9 +986,13 @@ body {
 /* ==================== Footer ==================== */
 .footer {
     margin-top: auto;
-    padding-top: 1rem;
+    padding: 2rem 1.5rem;
     z-index: 1;
     animation: fadeInUp 0.8s ease-out 0.8s both;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
 .footer p {
@@ -1206,30 +1220,34 @@ main>section:not(.hero-section) {
     display: none;
 }
 
-/* Floating Theme Toggle (Bottom-Center) */
-.floating-theme-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1000;
-    width: 50px;
-    height: 50px;
-    background: var(--bg-card);
-    border-radius: 50%;
-    box-shadow: 0 4px 15px var(--shadow-color);
-    border: 2px solid var(--primary-gold);
+/* Mobile Theme Toggle in Menu */
+.mobile-theme-toggle-li {
+    display: none;
 }
 
-.floating-theme-toggle:hover {
-    transform: translateX(-50%) rotate(15deg) scale(1.1);
-    box-shadow: 0 6px 20px var(--shadow-color);
-}
+@media (max-width: 768px) {
+    .mobile-theme-toggle-li {
+        display: block;
+        padding: 0.5rem 0;
+    }
 
-.floating-theme-toggle svg {
-    width: 28px;
-    height: 28px;
-    color: var(--primary-gold);
+    .mobile-theme-toggle-li .theme-toggle {
+        width: 100%;
+        padding: 0.75rem;
+        background: none;
+        border: 2px solid var(--primary-gold);
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-theme-toggle-li .theme-toggle:hover {
+        background: rgba(232, 168, 50, 0.1);
+        transform: scale(1.02);
+    }
 }
 
 /* --- Info Cards --- */
