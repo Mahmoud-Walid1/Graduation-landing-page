@@ -120,3 +120,44 @@ themeToggleBtns.forEach(btn => {
         }
     });
 });
+
+// Mobile Menu Toggle
+const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+
+        // Animate hamburger to X
+        const spans = mobileMenuBtn.querySelectorAll('span');
+        if (navLinks.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+            spans.forEach(span => span.style.transform = 'none');
+            spans[1].style.opacity = '1';
+        }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!mobileMenuBtn.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            spans.forEach(span => span.style.transform = 'none');
+            spans[1].style.opacity = '1';
+        }
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            spans.forEach(span => span.style.transform = 'none');
+            spans[1].style.opacity = '1';
+        });
+    });
+}
