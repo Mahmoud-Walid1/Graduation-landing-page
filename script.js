@@ -39,12 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // REPLACE THIS URL WITH YOUR GOOGLE APPS SCRIPT WEB APP URL
             const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwiaJw6DgBmebBtFEk7yszvU-6rg4qgvj4UmBfE01Hwt0r6sCAtuNk2e3xAedDFI_VRgQ/exec';
 
-            if (SCRIPT_URL === 'https://script.google.com/macros/s/AKfycbwiaJw6DgBmebBtFEk7yszvU-6rg4qgvj4UmBfE01Hwt0r6sCAtuNk2e3xAedDFI_VRgQ/exec') {
-                alert('Please configure the Google Apps Script URL in script.js first!');
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
-                return;
-            }
+            // Validation removed to allow submission
 
             fetch(SCRIPT_URL, {
                 method: 'POST',
