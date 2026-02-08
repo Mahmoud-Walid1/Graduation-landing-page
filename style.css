@@ -1231,6 +1231,31 @@ section {
     display: none;
 }
 
+/* Floating Theme Toggle (Bottom-Left Corner) */
+.floating-theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+    width: 50px;
+    height: 50px;
+    background: var(--bg-card);
+    border-radius: 50%;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 2px solid var(--primary-gold);
+}
+
+.floating-theme-toggle:hover {
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 6px 20px var(--shadow-color);
+}
+
+.floating-theme-toggle svg {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-gold);
+}
+
 /* --- Info Cards --- */
 .info-card {
     background: var(--bg-card);
