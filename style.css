@@ -119,8 +119,8 @@ body {
     direction: ltr;
     /* Force LTR so image is on the left */
     align-items: center;
-    gap: 0.2rem;
-    /* Reduced gap significantly */
+    gap: 0.5rem;
+    /* Reduced gap for closer spacing */
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 800;
