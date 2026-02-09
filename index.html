@@ -25,6 +25,11 @@
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="logo.png" alt="EDU EYE">
+                <span>EDU EYE</span>
+            </a>
+
             <div class="nav-controls">
                 <button class="mobile-menu-btn" aria-label="Toggle Menu">
                     <span></span>
@@ -33,40 +38,12 @@
                 </button>
             </div>
 
-            <a href="#" class="nav-logo">
-                <img src="logo.png" alt="EDU EYE">
-                <span>EDU EYE</span>
-            </a>
-
             <ul class="nav-links">
-                <li><a href="#video">عن النظام</a></li>
+                <li><a href="#about">الرؤية</a></li>
                 <li><a href="#how-it-works">المميزات</a></li>
                 <li><a href="#team">الفريق</a></li>
-                <li class="nav-download-li">
-                    <a href="EduEye.apk" download class="btn-download-app">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                            <polyline points="7 10 12 15 17 10"></polyline>
-                            <line x1="12" y1="15" x2="12" y2="3"></line>
-                        </svg>
-                        تحميل التطبيق
-                    </a>
-                </li>
                 <li><a href="#suggestions" class="nav-cta">اقتراح</a></li>
 
-                <!-- Theme Toggle in Mobile Menu -->
-                <li class="mobile-theme-toggle-li">
-                    <button class="theme-toggle" id="themeToggle" aria-label="تبديل السمة">
-                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="5" />
-                            <path
-                                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                        </svg>
-                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                        </svg>
-                    </button>
-                </li>
             </ul>
         </div>
     </nav>
@@ -86,6 +63,7 @@
             <!-- Logo Section -->
             <div class="logo-container">
                 <img src="logo.png" alt="EDU EYE Logo" class="logo">
+                <div class="logo-glow"></div>
             </div>
 
             <!-- Title Section -->
@@ -131,67 +109,6 @@
             <p class="sub-description">
                 تقنيات متطورة تجمع بين الذكاء الاصطناعي وإنترنت الأشياء لتوفير بيئة تعليمية آمنة وفعالة
             </p>
-
-            <!-- Hero Download Button -->
-            <div class="hero-actions">
-                <a href="EduEye.apk" download class="btn-hero-download">
-                    <svg viewBox="0 0 24 24" fill="none" class="icon" stroke="currentColor" stroke-width="2">
-                        <line x1="7" y1="2" x2="9" y2="4"></line>
-                        <line x1="17" y1="2" x2="15" y2="4"></line>
-                        <rect x="3" y="4" width="18" height="12" rx="2"></rect>
-                        <line x1="7" y1="13" x2="7" y2="15"></line>
-                        <line x1="17" y1="13" x2="17" y2="15"></line>
-                    </svg>
-                    <span>حمل التطبيق الآن</span>
-                    <small>نسخة الأندرويد</small>
-                </a>
-                <a href="#video" class="btn-hero-video">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <polygon points="10 8 16 12 10 16 10 8"></polygon>
-                    </svg>
-                    شاهد الفيديو
-                </a>
-            </div>
-        </section>
-
-        <!-- Video Section -->
-        <section id="video" class="video-section">
-            <h2 class="section-title">فيديو شرح المشروع</h2>
-            <div class="video-container" id="videoContainer"
-                style="position: relative; background: #000; cursor: pointer; border-radius: 20px; overflow: hidden;"
-                onclick="loadVideo()">
-
-                <!-- 1. The Facade (Visible initially) -->
-                <div id="videoFacade"
-                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 2; background: radial-gradient(circle, rgba(20, 20, 20, 0.8) 0%, #000 100%); transition: opacity 0.3s ease;">
-                    <div
-                        style="width: 80px; height: 80px; background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); border: 2px solid var(--primary-gold); border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 20px rgba(232, 168, 50, 0.2);">
-                        <svg viewBox="0 0 24 24" fill="var(--primary-gold)"
-                            style="width: 35px; height: 35px; margin-left: 5px;">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                    </div>
-                    <p style="color: var(--primary-gold); margin-top: 1rem; font-weight: 700; letter-spacing: 1px;">اضغط
-                        للمشاهدة</p>
-                </div>
-
-                <!-- 2. The Spinner (Hidden initially, shown while loading) -->
-                <div id="videoSpinner"
-                    style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; justify-content: center; align-items: center; z-index: 1; background: #000;">
-                    <div class="spinner"
-                        style="width: 40px; height: 40px; border: 4px solid rgba(255,255,255,0.1); border-top: 4px solid var(--primary-gold); border-radius: 50%; animation: spin 1s linear infinite;">
-                    </div>
-                </div>
-
-                <!-- 3. The Iframe (Empty initially) -->
-                <!-- 3. The Video (Local File) -->
-                <video id="projectVideo" width="100%" height="100%" src="video.mp4" controls preload="none"
-                    style="display: none; width: 100%; height: 100%; object-fit: contain; z-index: 1;"
-                    onplay="document.getElementById('videoSpinner').style.display='none';">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
         </section>
 
         <!-- About / Vision Section -->
@@ -199,249 +116,386 @@
             <h2 class="section-title">رؤيتنا</h2>
             <p class="vision-text">
                 "EDU EYE" هو نظام إدارة مدارس ذكي متكامل يضمن حضورًا آمنًا، مراقبة فورية للطلاب، وتواصلًا سلسًا بين
-                المدرسة وأولياء الأمور. نهدف لبناء جيل جديد من المدارس الذكية.
+                المدرسة والمعلمين وأولياء الأمور.
+                <br>
+                نهدف إلى خلق بيئة مدرسية رقمية بالكامل حيث يتم إدارة الحضور والأداء والتواصل بدقة وأمان وفي الوقت
+                الفعلي.
             </p>
         </section>
 
-        <!-- Features Grid -->
-        <section id="how-it-works" class="features-grid">
-            <div class="feature-card">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
+        <!-- How It Works & Ecosystem -->
+        <section id="how-it-works">
+            <h2 class="section-title">كيف يعمل النظام؟</h2>
+            <div class="grid-3">
+                <div class="info-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <h3>تسجيل الحضور</h3>
+                    <p>يعتمد النظام على تقنيات متطورة لتسجيل الحضور:</p>
+                    <ul class="check-list" style="margin-top: 1rem; text-align: right;">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            بطاقات NFC الذكية
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+                                <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+                                <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+                                <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+                                <smile cx="12" cy="12" r="10"></smile> <!-- Simplified Face Icon -->
+                                <circle cx="9" cy="9" r="1" fill="currentColor"></circle>
+                                <circle cx="15" cy="9" r="1" fill="currentColor"></circle>
+                                <path d="M9 15c1 1 5 1 6 0"></path> <!-- Smile -->
+                            </svg>
+                            التعرف على الوجه
+                        </li>
+                    </ul>
                 </div>
-                <h3>تسجيل الحضور بالذكاء الاصطناعي</h3>
-                <p>نظام التعرف على الوجه المتقدم يسجل الحضور تلقائياً بمجرد دخول الطالب، مما يلغي الطوابير والعمل
-                    اليدوي.</p>
-            </div>
 
-            <div class="feature-card">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
+                <div class="info-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                    </div>
+                    <h3>لوحة تحكم المدرسة</h3>
+                    <p>إدارة مركزية شاملة لجميع العمليات:</p>
+                    <ul class="check-list" style="margin-top: 1rem; text-align: right;">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            إدارة بيانات الطلاب
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="18" y1="20" x2="18" y2="10"></line>
+                                <line x1="12" y1="20" x2="12" y2="4"></line>
+                                <line x1="6" y1="20" x2="6" y2="14"></line>
+                            </svg>
+                            تقارير وإحصائيات فورية
+                        </li>
+                    </ul>
                 </div>
-                <h3>إشعارات فورية لأولياء الأمور</h3>
-                <p>يصلك إشعار فوري على هاتفك عند وصول أو مغادرة ابنك للمدرسة، مما يمنحك راحة البال الكاملة.</p>
-            </div>
 
-            <div class="feature-card">
-                <div class="icon-box">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                    </svg>
+                <div class="info-card">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                    </div>
+                    <h3>تطبيقات الموبايل</h3>
+                    <p>تطبيقات مخصصة لسهولة الوصول والمتابعة:</p>
+                    <ul class="check-list" style="margin-top: 1rem; text-align: right;">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            متابعة الحضور والغياب
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            التواصل مع أولياء الأمور
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                            </svg>
+                            شات بوت تفاعلي
+                        </li>
+                    </ul>
                 </div>
-                <h3>تنبيهات الغياب والتأخير</h3>
-                <p>نظام ذكي يرصد حالات الغياب والتأخير بشكل آلي ويرسل تقارير دورية للإدارة وأولياء الأمور لاتخاذ
-                    الإجراءات اللازمة.</p>
             </div>
         </section>
 
-        <!-- Team Section -->
-        <section id="team" class="team-section">
+
+        <!-- Why EDU EYE -->
+        <section id="why">
+            <h2 class="section-title">لماذا تختار EDU EYE؟</h2>
+            <div class="grid-2">
+                <div class="vision-box" style="text-align: right; padding: 0; background: none; box-shadow: none;">
+                    <ul class="check-list">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            يحسن الشفافية (Improves Transparency)
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+                                </path>
+                            </svg>
+                            يعزز التواصل (Enhances Communication)
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            يضمن سلامة الطلاب (Ensures Student Safety)
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path
+                                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                                </path>
+                            </svg>
+                            وصول مركزي (Centralized Access)
+                        </li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>تمكين المعلمين رقمياً</h3>
+                    <ul class="check-list" style="margin-top: 1rem; text-align: right;">
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            تسجيل الحضور (Record Attendance)
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            رصد الدرجات (Submit Grades)
+                        </li>
+                        <li>
+                            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="20 6 9 17 4 12"></polyline>
+                            </svg>
+                            تتبع سلوك الطالب (Track Behavior)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Target Users -->
+        <section id="users">
+            <h2 class="section-title">المستخدمون المستهدفون</h2>
+            <div class="grid-4">
+                <div class="info-card" style="padding: 1.5rem;">
+                    <h3>مسؤولي المدرسة</h3>
+                </div>
+                <div class="info-card" style="padding: 1.5rem;">
+                    <h3>المعلمين</h3>
+                </div>
+                <div class="info-card" style="padding: 1.5rem;">
+                    <h3>الطلاب</h3>
+                </div>
+                <div class="info-card" style="padding: 1.5rem;">
+                    <h3>أولياء الأمور</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Members -->
+        <section id="team">
             <h2 class="section-title">فريق العمل</h2>
-            <div class="team-grid">
-                <!-- Mahmoud Walid -->
-                <div class="team-card">
-                    <div class="member-image">
-                        <img src="https://avatars.githubusercontent.com/u/108668471?v=4" alt="Mahmoud Walid">
-                    </div>
-                    <h3>Mahmoud Walid</h3>
-                    <p class="role">Backend & Mobile App Developer</p>
-                    <div class="social-links">
-                        <a href="https://github.com/Mahmoud-Walid1" target="_blank" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
+            <div class="grid-4" style="direction: ltr;">
+                <div class="team-member">
+                    <p class="member-name">Mahmoud Walid</p>
+                    <div class="role-container">
+                        <div class="icons-row">
+                            <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="14" x2="23" y2="14"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="14" x2="4" y2="14"></line>
                             </svg>
-                        </a>
-                        <a href="https://www.linkedin.com/in/mahmoud-walid-30420a247/" target="_blank"
-                            aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
+                            <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
                             </svg>
-                        </a>
+                        </div>
+                        <p class="member-role">Hardware & Computer Vision</p>
                     </div>
                 </div>
-
-                <!-- Ahmed Hisham -->
-                <div class="team-card">
-                    <div class="member-image">
-                        <img src="https://media.licdn.com/dms/image/v2/D4D03AQE-GRyWunTjZA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1696614798670?e=1743033600&v=beta&t=l_J-eim9uJlY4wX6w_Ww_Ww_Ww"
-                            alt="Ahmed Hisham">
-                    </div>
-                    <h3>Ahmed Hisam</h3>
-                    <p class="role">Embedded Systems Engineer</p>
-                    <div class="social-links">
-                        <a href="#" target="_blank" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
+                <div class="team-member">
+                    <p class="member-name">Sara Elshenawy</p>
+                    <div class="role-container">
+                        <div class="icons-row">
+                            <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                                <rect x="9" y="9" width="6" height="6"></rect>
+                                <line x1="9" y1="1" x2="9" y2="4"></line>
+                                <line x1="15" y1="1" x2="15" y2="4"></line>
+                                <line x1="9" y1="20" x2="9" y2="23"></line>
+                                <line x1="15" y1="20" x2="15" y2="23"></line>
+                                <line x1="20" y1="9" x2="23" y2="9"></line>
+                                <line x1="20" y1="14" x2="23" y2="14"></line>
+                                <line x1="1" y1="9" x2="4" y2="9"></line>
+                                <line x1="1" y1="14" x2="4" y2="14"></line>
                             </svg>
-                        </a>
-                        <a href="#" target="_blank" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
+                            <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
                             </svg>
-                        </a>
+                        </div>
+                        <p class="member-role">Hardware & Computer Vision</p>
                     </div>
                 </div>
-
-                <!-- Youssef Tarek -->
-                <div class="team-card">
-                    <div class="member-image">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQF-GRyWunTjZA/profile-displayphoto-shrink_800_800/0/1696614798670?e=1743033600&v=beta&t=l_J-eim9uJlY4wX6w_Ww_Ww_Ww"
-                            alt="Youssef Tarek">
-                    </div>
-                    <h3>Youssef Tarek</h3>
-                    <p class="role">Frontend Developer</p>
-                    <div class="social-links">
-                        <a href="https://github.com/YoussefTarek" target="_blank" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
+                <div class="team-member">
+                    <p class="member-name">Youssef Mostafa</p>
+                    <div class="role-container">
+                        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                        <p class="member-role">UI/UX</p>
                     </div>
                 </div>
-
-                <!-- Hager Ahmed -->
-                <div class="team-card">
-                    <div class="member-image">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQF-GRyWunTjZA/profile-displayphoto-shrink_800_800/0/1696614798670?e=1743033600&v=beta&t=l_J-eim9uJlY4wX6w_Ww_Ww_Ww"
-                            alt="Hager Ahmed">
-                    </div>
-                    <h3>Hager Ahmed</h3>
-                    <p class="role">UI/UX Designer</p>
-                    <div class="social-links">
-                        <a href="#" target="_blank" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#" target="_blank" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
-                            </svg>
-                        </a>
+                <div class="team-member">
+                    <p class="member-name">Doaa Elsayed</p>
+                    <div class="role-container">
+                        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+                        </svg>
+                        <p class="member-role">Database</p>
                     </div>
                 </div>
-
-                <!-- Aya Mohamed -->
-                <div class="team-card">
-                    <div class="member-image">
-                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQF-GRyWunTjZA/profile-displayphoto-shrink_800_800/0/1696614798670?e=1743033600&v=beta&t=l_J-eim9uJlY4wX6w_Ww_Ww_Ww"
-                            alt="Aya Mohamed">
-                    </div>
-                    <h3>Aya Mohamed</h3>
-                    <p class="role">Documentation Specialist</p>
-                    <div class="social-links">
-                        <a href="#" target="_blank" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
-                                </path>
+                <div class="team-member">
+                    <p class="member-name">Rodania Moeen</p>
+                    <div class="role-container">
+                        <div class="icons-row">
+                            <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
                             </svg>
-                        </a>
-                        <a href="#" target="_blank" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
-                                </path>
-                                <rect x="2" y="9" width="4" height="12"></rect>
-                                <circle cx="4" cy="4" r="2"></circle>
+                            <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                                <line x1="8" y1="21" x2="16" y2="21"></line>
+                                <line x1="12" y1="17" x2="12" y2="21"></line>
                             </svg>
-                        </a>
+                        </div>
+                        <p class="member-role">Chatbot & Business</p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Product Suite Showcase -->
-        <section class="device-showcase">
-            <h2 class="section-title">منظومة متكاملة</h2>
-            <div class="suite-container">
-                <!-- Monitor / Dashboard -->
-                <div class="monitor-mockup">
-                    <div class="monitor-screen">
-                        <img src="dashboard_preview.png" alt="Admin Dashboard">
-                    </div>
-                    <div class="monitor-base"></div>
-                </div>
-
-                <!-- Mobile Phone -->
-                <div class="mobile-mockup">
-                    <div class="mobile-notch"></div>
-                    <div class="mobile-screen">
-                        <img src="logo.png" alt="EDU EYE App">
+                <div class="team-member">
+                    <p class="member-name">Sara Abdelkader</p>
+                    <div class="role-container">
+                        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                        <p class="member-role">Frontend</p>
                     </div>
                 </div>
-
-                <!-- The Hardware Device -->
-                <img src="project_device.png" alt="EDU EYE Device" class="suite-device">
-
-                <!-- ID Cards -->
-                <div class="cards-group">
-                    <img src="card_front.png" alt="ID Front" class="suite-card card-front">
-                    <img src="card_back.png" alt="ID Back" class="suite-card card-back">
+                <div class="team-member">
+                    <p class="member-name">Mahmoud Dowidar</p>
+                    <div class="role-container">
+                        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        <p class="member-role">Chatbot</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <p class="member-name">Moatasem Nagy</p>
+                    <div class="role-container">
+                        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                        </svg>
+                        <p class="member-role">Flutter</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <p class="member-name">Youssef Moawad</p>
+                    <div class="role-container">
+                        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                        <p class="member-role">Backend</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <p class="member-name">Mostafa Elbadry</p>
+                    <div class="role-container">
+                        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                        </svg>
+                        <p class="member-role">Backend</p>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Suggestions Section -->
-        <section id="suggestions" class="suggestions-section">
-            <h2 class="section-title">شاركنا اقتراحك</h2>
-            <form id="suggestionForm" class="glass-form" action="https://formspree.io/f/mqaejzkw" method="POST">
+        <section id="suggestions" class="vision-box" style="margin-top: 4rem;">
+            <h2 class="section-title">اقتراحات لتطوير المشروع</h2>
+            <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">رأيك يهمنا! ساعدنا في
+                تحسين النظام بإرسال مقترحاتك.</p>
 
-                <div class="form-group">
+            <form id="suggestionForm" style="max-width: 600px; margin: 0 auto; direction: rtl;">
+                <div style="margin-bottom: 1.5rem;">
                     <label for="name"
                         style="display: block; margin-bottom: 0.5rem; color: var(--primary-blue); font-weight: bold;">الاسم
                         (اختياري)</label>
-                    <input type="text" id="name" name="name" placeholder="اسمك الكريم"
+                    <input type="text" id="name" name="name" placeholder="أدخل اسمك هنا..."
                         style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; background: var(--bg-body); color: var(--text-primary);">
                 </div>
 
-                <div class="form-group">
-                    <label for="email"
-                        style="display: block; margin-bottom: 0.5rem; color: var(--primary-blue); font-weight: bold;">البريد
-                        الإلكتروني (للتواصل)</label>
-                    <input type="email" id="email" name="email" required placeholder="example@email.com"
-                        style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; background: var(--bg-body); color: var(--text-primary);">
-                </div>
-
-                <div class="form-group">
+                <div style="margin-bottom: 1.5rem;">
                     <label for="suggestion"
                         style="display: block; margin-bottom: 0.5rem; color: var(--primary-blue); font-weight: bold;">اقتراحك</label>
                     <textarea id="suggestion" name="suggestion" rows="5" required placeholder="اكتب اقتراحك هنا..."
@@ -468,459 +522,19 @@
         </svg>
     </button>
 
+    <!-- Floating Theme Toggle Button -->
+    <button class="theme-toggle floating-theme-toggle" id="themeToggle" aria-label="تبديل السمة">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5" />
+            <path
+                d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+        </svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+    </button>
+
     <script src="script.js"></script>
-    <script>
-        function loadVideo() {
-            var container = document.getElementById('videoContainer');
-            var facade = document.getElementById('videoFacade');
-            var video = document.getElementById('projectVideo');
-
-            // 1. Hide Facade
-            facade.style.opacity = '0';
-            setTimeout(function () {
-                facade.style.display = 'none';
-            }, 300);
-
-            // 2. Play Video
-            video.style.display = 'block';
-            video.play();
-
-            // Remove click listener
-            container.onclick = null;
-            container.style.cursor = 'default';
-        }
-    </script>
-</body>
-<h2 class="section-title">رؤيتنا</h2>
-<p class="vision-text">
-    "EDU EYE" هو نظام إدارة مدارس ذكي متكامل يضمن حضورًا آمنًا، مراقبة فورية للطلاب، وتواصلًا سلسًا بين
-    المدرسة والمعلمين وأولياء الأمور.
-    <br>
-    نهدف إلى خلق بيئة مدرسية رقمية بالكامل حيث يتم إدارة الحضور والأداء والتواصل بدقة وأمان وفي الوقت
-    الفعلي.
-</p>
-</section>
-
-<!-- How It Works & Ecosystem -->
-<section id="how-it-works">
-    <h2 class="section-title">كيف يعمل النظام؟</h2>
-    <div class="grid-3">
-        <div class="info-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-            </div>
-            <h3>تسجيل الحضور</h3>
-            <p>يعتمد النظام على تقنيات متطورة لتسجيل الحضور:</p>
-            <ul class="check-list" style="margin-top: 1rem; text-align: right;">
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                    </svg>
-                    بطاقات NFC الذكية
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
-                        <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
-                        <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
-                        <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
-                        <circle cx="9" cy="9" r="1" fill="currentColor"></circle>
-                        <circle cx="15" cy="9" r="1" fill="currentColor"></circle>
-                        <path d="M9 15c1 1 5 1 6 0"></path> <!-- Smile -->
-                    </svg>
-                    التعرف على الوجه
-                </li>
-            </ul>
-        </div>
-
-        <div class="info-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <line x1="3" y1="9" x2="21" y2="9"></line>
-                    <line x1="9" y1="21" x2="9" y2="9"></line>
-                </svg>
-            </div>
-            <h3>لوحة تحكم المدرسة</h3>
-            <p>إدارة مركزية شاملة لجميع العمليات:</p>
-            <ul class="check-list" style="margin-top: 1rem; text-align: right;">
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <polyline points="10 9 9 9 8 9"></polyline>
-                    </svg>
-                    إدارة بيانات الطلاب
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="20" x2="18" y2="10"></line>
-                        <line x1="12" y1="20" x2="12" y2="4"></line>
-                        <line x1="6" y1="20" x2="6" y2="14"></line>
-                    </svg>
-                    تقارير وإحصائيات فورية
-                </li>
-            </ul>
-        </div>
-
-        <div class="info-card">
-            <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                </svg>
-            </div>
-            <h3>تطبيقات الموبايل</h3>
-            <p>تطبيقات مخصصة لسهولة الوصول والمتابعة:</p>
-            <ul class="check-list" style="margin-top: 1rem; text-align: right;">
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                    </svg>
-                    متابعة الحضور والغياب
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                    </svg>
-                    التواصل مع أولياء الأمور
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                    </svg>
-                    شات بوت تفاعلي
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-
-<!-- Why EDU EYE -->
-<section id="why">
-    <h2 class="section-title">لماذا تختار EDU EYE؟</h2>
-    <div class="grid-2">
-        <div class="vision-box" style="text-align: right; padding: 0; background: none; box-shadow: none;">
-            <ul class="check-list">
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    يحسن الشفافية (Improves Transparency)
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path
-                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-                        </path>
-                    </svg>
-                    يعزز التواصل (Enhances Communication)
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                    </svg>
-                    يضمن سلامة الطلاب (Ensures Student Safety)
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path
-                            d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
-                        </path>
-                    </svg>
-                    وصول مركزي (Centralized Access)
-                </li>
-            </ul>
-        </div>
-        <div class="info-card">
-            <h3>تمكين المعلمون رقمياً</h3>
-            <ul class="check-list" style="margin-top: 1rem; text-align: right;">
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    تسجيل الحضور (Record Attendance)
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    رصد الدرجات (Submit Grades)
-                </li>
-                <li>
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                    تتبع سلوك الطالب (Track Behavior)
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Target Users -->
-<section id="users">
-    <h2 class="section-title">المستخدمون المستهدفون</h2>
-    <div class="grid-4">
-        <div class="info-card" style="padding: 1.5rem;">
-            <h3>مسؤولي المدرسة</h3>
-        </div>
-        <div class="info-card" style="padding: 1.5rem;">
-            <h3>المعلمون</h3>
-        </div>
-        <div class="info-card" style="padding: 1.5rem;">
-            <h3>الطلاب</h3>
-        </div>
-        <div class="info-card" style="padding: 1.5rem;">
-            <h3>أولياء الأمور</h3>
-        </div>
-    </div>
-</section>
-
-<!-- Team Members -->
-<section id="team">
-    <h2 class="section-title">فريق العمل</h2>
-    <div class="grid-4" style="direction: ltr;">
-        <div class="team-member">
-            <p class="member-name">Mahmoud Walid</p>
-            <div class="role-container">
-                <div class="icons-row">
-                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                        <rect x="9" y="9" width="6" height="6"></rect>
-                        <line x1="9" y1="1" x2="9" y2="4"></line>
-                        <line x1="15" y1="1" x2="15" y2="4"></line>
-                        <line x1="9" y1="20" x2="9" y2="23"></line>
-                        <line x1="15" y1="20" x2="15" y2="23"></line>
-                        <line x1="20" y1="9" x2="23" y2="9"></line>
-                        <line x1="20" y1="14" x2="23" y2="14"></line>
-                        <line x1="1" y1="9" x2="4" y2="9"></line>
-                        <line x1="1" y1="14" x2="4" y2="14"></line>
-                    </svg>
-                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
-                </div>
-                <p class="member-role">Hardware & Computer Vision</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Sara Elshenawy</p>
-            <div class="role-container">
-                <div class="icons-row">
-                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
-                        <rect x="9" y="9" width="6" height="6"></rect>
-                        <line x1="9" y1="1" x2="9" y2="4"></line>
-                        <line x1="15" y1="1" x2="15" y2="4"></line>
-                        <line x1="9" y1="20" x2="9" y2="23"></line>
-                        <line x1="15" y1="20" x2="15" y2="23"></line>
-                        <line x1="20" y1="9" x2="23" y2="9"></line>
-                        <line x1="20" y1="14" x2="23" y2="14"></line>
-                        <line x1="1" y1="9" x2="4" y2="9"></line>
-                        <line x1="1" y1="14" x2="4" y2="14"></line>
-                    </svg>
-                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                        <circle cx="12" cy="12" r="3"></circle>
-                    </svg>
-                </div>
-                <p class="member-role">Hardware & Computer Vision</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Youssef Mostafa</p>
-            <div class="role-container">
-                <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                    <path d="M2 2l7.586 7.586"></path>
-                    <circle cx="11" cy="11" r="2"></circle>
-                </svg>
-                <p class="member-role">UI/UX</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Doaa Elsayed</p>
-            <div class="role-container">
-                <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                </svg>
-                <p class="member-role">Database</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Rodania Moeen</p>
-            <div class="role-container">
-                <div class="icons-row">
-                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                    </svg>
-                    <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                        <line x1="8" y1="21" x2="16" y2="21"></line>
-                        <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                </div>
-                <p class="member-role">Chatbot & Business</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Sara Abdelkader</p>
-            <div class="role-container">
-                <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-                <p class="member-role">Frontend</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Mahmoud Dowidar</p>
-            <div class="role-container">
-                <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-                </svg>
-                <p class="member-role">Chatbot</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Moatasem Nagy</p>
-            <div class="role-container">
-                <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                    <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                </svg>
-                <p class="member-role">Flutter</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Youssef Moawad</p>
-            <div class="role-container">
-                <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                </svg>
-                <p class="member-role">Backend</p>
-            </div>
-        </div>
-        <div class="team-member">
-            <p class="member-name">Mostafa Elbadry</p>
-            <div class="role-container">
-                <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-                    <line x1="6" y1="6" x2="6.01" y2="6"></line>
-                    <line x1="6" y1="18" x2="6.01" y2="18"></line>
-                </svg>
-                <p class="member-role">Backend</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Suggestions Section -->
-<section id="suggestions" class="vision-box" style="margin-top: 4rem;">
-    <h2 class="section-title">اقتراحات لتطوير المشروع</h2>
-    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 2rem;">رأيك يهمنا! ساعدنا في
-        تحسين النظام بإرسال مقترحاتك.</p>
-
-    <form id="suggestionForm" style="max-width: 600px; margin: 0 auto; direction: rtl;">
-        <div style="margin-bottom: 1.5rem;">
-            <label for="name"
-                style="display: block; margin-bottom: 0.5rem; color: var(--primary-blue); font-weight: bold;">الاسم
-                (اختياري)</label>
-            <input type="text" id="name" name="name" placeholder="أدخل اسمك هنا..."
-                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; background: var(--bg-body); color: var(--text-primary);">
-        </div>
-
-        <div style="margin-bottom: 1.5rem;">
-            <label for="suggestion"
-                style="display: block; margin-bottom: 0.5rem; color: var(--primary-blue); font-weight: bold;">اقتراحك</label>
-            <textarea id="suggestion" name="suggestion" rows="5" required placeholder="اكتب اقتراحك هنا..."
-                style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #ccc; background: var(--bg-body); color: var(--text-primary); resize: vertical;"></textarea>
-        </div>
-
-        <div style="text-align: center;">
-            <button type="submit" class="submit-btn">إرسال الاقتراح</button>
-            <p id="formStatus" style="margin-top: 1rem; font-weight: bold; display: none;"></p>
-        </div>
-    </form>
-</section>
-
-<!-- Footer -->
-<footer class="footer">
-    <p>مشروع تخرج &copy; 2026</p>
-</footer>
-</main>
-
-<!-- Back to Top Button -->
-<button id="backToTop" class="back-to-top" aria-label="العودة للأعلى">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M18 15l-6-6-6 6"></path>
-    </svg>
-</button>
-
-<script src="script.js"></script>
-<script>
-    function loadVideo() {
-        var container = document.getElementById('videoContainer');
-        var facade = document.getElementById('videoFacade');
-        var spinner = document.getElementById('videoSpinner');
-        var iframe = document.getElementById('projectVideo');
-
-        // 1. Hide Facade
-        facade.style.opacity = '0';
-        setTimeout(function () {
-            facade.style.display = 'none';
-        }, 300);
-
-        // 2. Show Spinner
-        spinner.style.display = 'flex';
-
-        // 3. Load Iframe from data-src
-        if (iframe.getAttribute('data-src')) {
-            iframe.src = iframe.getAttribute('data-src');
-        }
-
-        // Remove click listener
-        container.onclick = null;
-        container.style.cursor = 'default';
-    }
-</script>
-<script>
-    function playVideo() {
-        var overlay = document.getElementById('videoOverlay');
-        var iframe = document.getElementById('projectVideo');
-
-        // Hide overlay
-        overlay.style.display = 'none';
-
-        // Reload iframe with autoplay enabled (Google Drive trick)
-        var src = iframe.src;
-        if (src.indexOf('autoplay=1') === -1) {
-            iframe.src = src; // Reloading usually triggers autoplay if allowed, or user clicks once more
-        }
-    }
-</script>
 </body>
 
 </html>
