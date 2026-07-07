@@ -1,0 +1,11 @@
+# Large files - Ignore APK files (exceed GitHub 100MB limit)
+*.apk
+EduEye.apk
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
